@@ -1,0 +1,4 @@
+grunt> A = LOAD '/Sourabh/Session9/Assignment1/DatasetPetrol.txt' USING PigStorage(',') AS (distID: chararray, distName: chararray, buyRate:chararray, sellRate: chararray, volIn: int, volOut: int, year: int);
+grunt> B = GROUP A BY distName;
+grunt> VolPetrol = FOREACH B GENERATE group, SUM(A.volOut);
+grunt> DUMP VolPetrol;
